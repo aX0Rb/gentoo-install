@@ -380,6 +380,13 @@ function process_config() {
 		KEYMAP_INITRAMFS_OTHER=true
 	fi
 
+	if [[ "$KEYMAP" == "colemak" ]]; then
+	    if [[ "$KEYMAP_INITRAMFS" == "colemak" ]]; then
+		KEYMAP_INITRAMFS="en-latin9"
+	    fi
+	    KEYMAP="en-latin9"
+	fi
+	
 	load_selected_locales
 	recalculate_locales
 }
